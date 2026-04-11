@@ -10,17 +10,17 @@
         rel="stylesheet">
     <style>
         :root {
-            --bg: #08090B;
-            --bg2: #111215;
-            --bg3: #1A1B1F;
-            --border: rgba(255, 255, 255, 0.07);
-            --gold: #C9A84C;
-            --gold2: #E8C068;
-            --text: #F0EDE6;
-            --t2: #8A8A95;
-            --t3: #4A4A55;
-            --red: #E54B4B;
-            --green: #3EBD88;
+            --bg: #15171E;
+            --bg2: #20232D;
+            --bg3: #2D313F;
+            --border: rgba(255, 255, 255, 0.12);
+            --gold: #DDAF37;
+            --gold2: #F7D56B;
+            --text: #FFFFFF;
+            --t2: #AAB2BD;
+            --t3: #757D8A;
+            --red: #FF6B6B;
+            --green: #4ADE80;
             --r: 12px;
         }
 
@@ -56,7 +56,7 @@
             align-items: center;
             padding: 0 5%;
             height: 70px;
-            background: rgba(8, 9, 11, 0.92);
+            background: rgba(21, 23, 30, 0.92);
             backdrop-filter: blur(18px);
             border-bottom: 1px solid var(--border);
         }
@@ -151,7 +151,7 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse 80% 60% at 65% 45%, rgba(201, 168, 76, 0.09) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 15% 80%, rgba(201, 168, 76, 0.04) 0%, transparent 60%);
+            background: radial-gradient(ellipse 80% 60% at 65% 45%, rgba(221, 175, 55, 0.15) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 15% 80%, rgba(221, 175, 55, 0.08) 0%, transparent 60%);
         }
 
         .hero-grid {
@@ -358,7 +358,7 @@
         }
 
         .sf-select option {
-            background: #1A1B1F;
+            background: var(--bg3);
         }
 
         .sf-btn {
@@ -533,7 +533,7 @@
         }
 
         .fg select option {
-            background: #1A1B1F;
+            background: var(--bg3);
         }
 
         .price-val {
@@ -1009,7 +1009,7 @@
         }
 
         .ff select option {
-            background: #1A1B1F;
+            background: var(--bg3);
         }
 
         .ff textarea {
@@ -1488,64 +1488,9 @@
             z-index: 10
         }
 
-        /* ── LIVE CHAT ICON ── */
-        .chat-bubble {
-            position: fixed;
-            bottom: 100px;
-            right: 24px;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            color: white;
-            font-size: 24px;
-            box-shadow: 0 6px 24px rgba(102, 126, 234, 0.4);
-            cursor: pointer;
-            z-index: 900;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: pulse 2s infinite
-        }
-
-        .chat-bubble:hover {
-            transform: scale(1.1);
-            animation: none
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: translate(0, 0)
-            }
-
-            50% {
-                transform: translate(-2px, -2px)
-            }
-        }
-
-        .chat-indicator {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            width: 12px;
-            height: 12px;
-            background: #00FF00;
-            border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0 0 8px #00FF00
-        }
-
         /* ── TOAST NOTIFICATION ── */
         .toast.whatsapp-toast {
             border-color: rgba(37, 211, 102, 0.4)
-        }
-
-        .toast.chat-toast {
-            border-color: rgba(102, 126, 234, 0.4)
         }
 
         /* ── COMPARE TABLE MODAL ── */
@@ -1652,6 +1597,268 @@
             transform: translateY(0);
         }
 
+        /* ── INLINE COMPARE SECTION ── */
+        .cmp-picker {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px;
+            transition: border-color 0.2s;
+        }
+
+        .cmp-picker:focus-within {
+            border-color: rgba(201, 168, 76, 0.4);
+        }
+
+        .cmp-picker-label {
+            font-size: 10px;
+            color: var(--t3);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .cmp-select {
+            width: 100%;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            padding: 10px 14px;
+            outline: none;
+            cursor: pointer;
+            -webkit-appearance: none;
+            transition: border-color 0.2s;
+        }
+
+        .cmp-select:focus {
+            border-color: var(--gold);
+        }
+
+        .cmp-select option {
+            background: var(--bg3);
+        }
+
+        .cmp-select optgroup {
+            color: var(--gold);
+            font-size: 11px;
+        }
+
+        .cmp-car-preview {
+            margin-top: 14px;
+            min-height: 60px;
+        }
+
+        .cmp-preview-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cmp-preview-thumb {
+            width: 64px;
+            height: 42px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            background: var(--bg);
+        }
+
+        .cmp-preview-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .cmp-preview-price {
+            font-size: 12px;
+            color: var(--gold);
+            margin-top: 2px;
+        }
+
+        /* Inline compare table */
+        .icmp-wrap {
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .icmp-header {
+            display: grid;
+            background: var(--bg3);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .icmp-car-head {
+            padding: 18px 20px;
+            border-left: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .icmp-car-head:first-child {
+            border-left: none;
+        }
+
+        .icmp-car-badge-row {
+            font-size: 10px;
+            color: var(--t3);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
+
+        .icmp-car-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1.2;
+        }
+
+        .icmp-car-price {
+            font-size: 13px;
+            color: var(--t2);
+            margin-top: 4px;
+        }
+
+        .icmp-section-head {
+            padding: 8px 20px;
+            font-size: 10px;
+            color: var(--t3);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: rgba(201, 168, 76, 0.06);
+            border-top: 1px solid var(--border);
+            font-weight: 600;
+        }
+
+        .icmp-row {
+            display: grid;
+            border-top: 1px solid var(--border);
+            transition: background 0.15s;
+        }
+
+        .icmp-row:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .icmp-label {
+            padding: 14px 20px;
+            font-size: 12px;
+            color: var(--t2);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--bg3);
+            border-right: 1px solid var(--border);
+        }
+
+        .icmp-cell {
+            padding: 14px 20px;
+            font-size: 13px;
+            color: var(--t2);
+            text-align: center;
+            border-left: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+
+        .icmp-cell:first-of-type {
+            border-left: none;
+        }
+
+        .icmp-win {
+            color: var(--green) !important;
+            font-weight: 700 !important;
+        }
+
+        .icmp-lose {
+            color: var(--t3) !important;
+        }
+
+        .icmp-bar-wrap {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            margin-top: 6px;
+            overflow: hidden;
+        }
+
+        .icmp-bar {
+            height: 100%;
+            border-radius: 3px;
+            background: var(--gold);
+            transition: width 0.6s ease;
+        }
+
+        .icmp-bar.win {
+            background: var(--green);
+        }
+
+        .icmp-bar.lose {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .icmp-verdict {
+            padding: 20px;
+            background: var(--bg3);
+            border-top: 1px solid var(--border);
+            display: grid;
+            gap: 10px;
+        }
+
+        .icmp-verdict-title {
+            font-size: 10px;
+            color: var(--t3);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
+
+        .icmp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid;
+        }
+
+        .icmp-badge.gold {
+            background: rgba(201, 168, 76, 0.12);
+            color: var(--gold);
+            border-color: rgba(201, 168, 76, 0.3);
+        }
+
+        .icmp-badge.green {
+            background: rgba(62, 189, 136, 0.12);
+            color: var(--green);
+            border-color: rgba(62, 189, 136, 0.3);
+        }
+
+        .icmp-badge.red {
+            background: rgba(229, 75, 75, 0.12);
+            color: var(--red);
+            border-color: rgba(229, 75, 75, 0.3);
+        }
+
+        .icmp-verdict-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
         ::-webkit-scrollbar {
             width: 5px;
         }
@@ -1692,9 +1899,10 @@
         <div class="hero-grid"></div>
 
         <div class="hero-badge">⬤ &nbsp;Showroom đang mở cửa</div>
-        <h1 class="hero-title reveal">Trải Nghiệm<br><em>Đẳng Cấp</em><br>Đích Thực</h1>
-        <p class="hero-sub reveal">Bộ sưu tập xe cao cấp được tuyển chọn kỹ lưỡng. Từ sedan sang trọng đến SUV mạnh mẽ —
-            hoàn hảo cho từng hành trình.</p>
+        <h1 class="hero-title reveal">Siêu Xe &<br><em>Xe Sang</em><br>Đích Thực</h1>
+        <p class="hero-sub reveal">Bộ sưu tập siêu xe và xe cao cấp được tuyển chọn kỹ lưỡng. Từ Ferrari, Lamborghini
+            đến Rolls-Royce —
+            đẳng cấp không biên giới, cảm xúc không lời diễn đạt.</p>
         <div class="hero-btns reveal">
             <a href="#inventory" class="btn-lg gold">Xem Kho Xe →</a>
             <a href="#contact" class="btn-lg outline">Lái Thử Ngay</a>
@@ -1915,11 +2123,13 @@
         <!-- Filter tabs -->
         <div class="filter-tabs reveal">
             <button class="f-tab active" data-filter="all">Tất Cả</button>
+            <button class="f-tab" data-filter="Siêu xe">🏎 Siêu Xe</button>
             <button class="f-tab" data-filter="Sedan">Sedan</button>
             <button class="f-tab" data-filter="SUV">SUV</button>
             <button class="f-tab" data-filter="Thể thao">Thể Thao</button>
-            <button class="f-tab" data-filter="Điện">Xe Điện</button>
-            <button class="f-tab" data-filter="Hybrid">Hybrid</button>
+            <button class="f-tab" data-filter="Coupe">Coupe</button>
+            <button class="f-tab" data-filter="Điện">⚡ Xe Điện</button>
+            <button class="f-tab" data-filter="Hybrid">🌿 Hybrid</button>
         </div>
 
         <!-- Advanced filters -->
@@ -1928,21 +2138,51 @@
                 <label>Thương Hiệu</label>
                 <select id="f-brand" onchange="applyFilters()">
                     <option value="">Tất cả</option>
-                    <option>BMW</option>
-                    <option>Mercedes-Benz</option>
-                    <option>Porsche</option>
-                    <option>Toyota</option>
-                    <option>Lexus</option>
-                    <option>Audi</option>
-                    <option>VinFast</option>
-                    <option>Tesla</option>
-                    <option>Land Rover</option>
+                    <optgroup label="── Siêu Xe ──">
+                        <option>Ferrari</option>
+                        <option>Lamborghini</option>
+                        <option>McLaren</option>
+                        <option>Bugatti</option>
+                        <option>Pagani</option>
+                        <option>Koenigsegg</option>
+                    </optgroup>
+                    <optgroup label="── Siêu Sang ──">
+                        <option>Rolls-Royce</option>
+                        <option>Bentley</option>
+                        <option>Maserati</option>
+                        <option>Aston Martin</option>
+                    </optgroup>
+                    <optgroup label="── Cao Cấp ──">
+                        <option>BMW</option>
+                        <option>Mercedes-Benz</option>
+                        <option>Porsche</option>
+                        <option>Audi</option>
+                        <option>Lexus</option>
+                        <option>Land Rover</option>
+                    </optgroup>
+                    <optgroup label="── Phổ Thông ──">
+                        <option>Toyota</option>
+                        <option>VinFast</option>
+                        <option>Tesla</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="fg">
+                <label>Loại Xe</label>
+                <select id="f-type" onchange="applyFilters()">
+                    <option value="">Tất cả</option>
+                    <option>Siêu xe</option>
+                    <option>Sedan</option>
+                    <option>SUV</option>
+                    <option>Thể thao</option>
+                    <option>Coupe</option>
                 </select>
             </div>
             <div class="fg">
                 <label>Năm</label>
                 <select id="f-year" onchange="applyFilters()">
                     <option value="">Tất cả</option>
+                    <option>2025</option>
                     <option>2024</option>
                     <option>2023</option>
                     <option>2022</option>
@@ -1959,8 +2199,8 @@
                 </select>
             </div>
             <div class="fg">
-                <label>Giá Tối Đa: <span class="price-val" id="price-label">10 tỷ</span></label>
-                <input type="range" min="1" max="10" value="10" step="0.5" id="f-price"
+                <label>Giá Tối Đa: <span class="price-val" id="price-label">100 tỷ</span></label>
+                <input type="range" min="1" max="100" value="100" step="1" id="f-price"
                     oninput="updatePrice(this.value)" onchange="applyFilters()">
             </div>
             <div class="fg">
@@ -1979,6 +2219,8 @@
                     <option value="">Tất cả</option>
                     <option>Tự động</option>
                     <option>Số sàn</option>
+                    <option>PDK</option>
+                    <option>DCT</option>
                 </select>
             </div>
         </div>
@@ -2007,6 +2249,54 @@
                 <div class="big-num" data-count="98">0<span>%</span></div>
                 <div class="big-lbl">Khách hàng hài lòng</div>
             </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ COMPARE SECTION ═══════════════ -->
+    <section id="compare-section"
+        style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 5%;">
+        <div class="sec-header reveal">
+            <div>
+                <div class="sec-eyebrow">Công Cụ So Sánh</div>
+                <h2 class="sec-title">So Sánh Xe Trực Tiếp</h2>
+            </div>
+            <p style="font-size:13px;color:var(--t2);max-width:300px;text-align:right;line-height:1.6">Chọn tối đa 3 xe
+                để so sánh thông số chi tiết cạnh nhau.</p>
+        </div>
+
+        <!-- Car selectors -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:36px;" class="reveal"
+            id="cmp-selectors">
+            <div class="cmp-picker" id="cmp-picker-0">
+                <div class="cmp-picker-label">Xe thứ nhất</div>
+                <select class="cmp-select" onchange="updateInlineCompare()" id="cmp-sel-0">
+                    <option value="">-- Chọn xe --</option>
+                </select>
+                <div class="cmp-car-preview" id="cmp-preview-0"></div>
+            </div>
+            <div class="cmp-picker" id="cmp-picker-1">
+                <div class="cmp-picker-label">Xe thứ hai</div>
+                <select class="cmp-select" onchange="updateInlineCompare()" id="cmp-sel-1">
+                    <option value="">-- Chọn xe --</option>
+                </select>
+                <div class="cmp-car-preview" id="cmp-preview-1"></div>
+            </div>
+            <div class="cmp-picker" id="cmp-picker-2">
+                <div class="cmp-picker-label">Xe thứ ba <span style="color:var(--t3);font-size:10px">(tuỳ chọn)</span>
+                </div>
+                <select class="cmp-select" onchange="updateInlineCompare()" id="cmp-sel-2">
+                    <option value="">-- Không chọn --</option>
+                </select>
+                <div class="cmp-car-preview" id="cmp-preview-2"></div>
+            </div>
+        </div>
+
+        <!-- Inline compare result -->
+        <div id="inline-cmp-result" style="display:none"></div>
+
+        <div id="inline-cmp-empty"
+            style="text-align:center;padding:48px;color:var(--t3);font-size:14px;border:1.5px dashed var(--border);border-radius:16px">
+            ⬆️ Chọn ít nhất 2 xe phía trên để bắt đầu so sánh
         </div>
     </section>
 
@@ -2151,15 +2441,37 @@
                             <label>Xe Quan Tâm</label>
                             <select>
                                 <option value="">-- Chọn xe --</option>
-                                <option>BMW 7 Series</option>
-                                <option>Mercedes GLE</option>
-                                <option>Porsche 911</option>
-                                <option>Toyota Camry</option>
-                                <option>Lexus RX</option>
-                                <option>Audi Q8</option>
-                                <option>VinFast VF9</option>
-                                <option>Tesla Model S</option>
-                                <option>Range Rover Sport</option>
+                                <optgroup label="── Siêu Xe ──">
+                                    <option>Bugatti Chiron Super Sport</option>
+                                    <option>Ferrari 488 Pista Spider</option>
+                                    <option>Ferrari Roma Spider</option>
+                                    <option>Lamborghini Huracán EVO</option>
+                                    <option>McLaren 720S Spider</option>
+                                </optgroup>
+                                <optgroup label="── Siêu Sang ──">
+                                    <option>Rolls-Royce Ghost Black Badge</option>
+                                    <option>Bentley Bentayga EWB</option>
+                                    <option>Bentley Flying Spur Mulliner</option>
+                                    <option>Aston Martin DB12 Volante</option>
+                                    <option>Maserati GranTurismo Folgore</option>
+                                </optgroup>
+                                <optgroup label="── Cao Cấp ──">
+                                    <option>Mercedes-Maybach S 580</option>
+                                    <option>BMW X7 M60i</option>
+                                    <option>Lamborghini Urus Performante</option>
+                                    <option>Porsche Cayenne Turbo GT</option>
+                                    <option>Porsche 911 Turbo S</option>
+                                    <option>Land Rover Range Rover</option>
+                                    <option>Audi Q8 TFSI</option>
+                                    <option>Lexus RX 500H</option>
+                                    <option>BMW 740i xDrive</option>
+                                    <option>Mercedes GLE 450 AMG</option>
+                                </optgroup>
+                                <optgroup label="── Xe Điện ──">
+                                    <option>Tesla Model X Plaid</option>
+                                    <option>Tesla Model S Plaid</option>
+                                    <option>VinFast VF9</option>
+                                </optgroup>
                             </select>
                         </div>
                         <div class="ff">
@@ -2283,12 +2595,6 @@
         <div class="whatsapp-tooltip">Chat ngay qua WhatsApp</div>
     </a>
 
-    <!-- LIVE CHAT BUTTON -->
-    <button class="chat-bubble" title="Live Chat Support" onclick="openLiveChat()">
-        💬
-        <div class="chat-indicator"></div>
-    </button>
-
     <!-- 360° GALLERY MODAL -->
     <div class="overlay" id="gallery-overlay" onclick="closeGallery(event)">
         <div class="modal" id="gallery-modal" style="max-width:600px">
@@ -2316,30 +2622,6 @@
                     <div class="gallery-info">Xem xe từ 360°</div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- LIVE CHAT PANEL -->
-    <div id="chat-panel"
-        style="display:none;position:fixed;bottom:100px;right:24px;width:320px;height:400px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;z-index:890;flex-direction:column;box-shadow:0 10px 40px rgba(0,0,0,0.5)">
-        <div
-            style="padding:12px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-            <div style="font-weight:700;font-size:13px">AutoLux Support 🤝</div>
-            <button onclick="closeLiveChat()"
-                style="background:none;border:none;color:var(--t2);cursor:pointer;font-size:16px">✕</button>
-        </div>
-        <div style="flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px">
-            <div
-                style="background:var(--bg3);padding:10px;border-radius:8px;font-size:12px;color:var(--t2);border-left:3px solid var(--gold)">
-                👋 Xin chào! Chúng tôi ở đây để giúp. Bạn muốn tìm hiểu gì về xe?
-            </div>
-            <div style="font-size:11px;color:var(--t3);text-align:center">💬 Thời gian phản hồi: &lt; 2 phút</div>
-        </div>
-        <div style="padding:12px;border-top:1px solid var(--border);display:flex;gap:8px">
-            <input type="text" id="chat-input" placeholder="Nhập tin nhắn..."
-                style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 12px;font-family:'Outfit',sans-serif;font-size:12px">
-            <button onclick="sendChat()"
-                style="background:var(--gold);border:none;color:#000;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600;font-size:14px">↑</button>
         </div>
     </div>
 
@@ -2412,6 +2694,111 @@
                 specs: { engine: '3.0L P400', power: '400 HP', torque: '550 Nm', speed: '0-100: 5.4s', fuel: '10.5 L/100km', seats: '5 chỗ' },
                 desc: 'Range Rover Sport – SUV hạng sang off-road đỉnh cao với địa hình có thể lội qua nước sâu 90cm. Hệ thống IDS Intelligent Driveline cho cảm giác lái smooth trên đường phố, dữ dội ngoài địa hình. Biểu tượng của tự do.'
             },
+            {
+                id: 10, brand: 'Ferrari', name: '488 Pista Spider', type: 'Siêu xe', year: 2023, fuel: 'Xăng', seats: 2, trans: 'DCT',
+                price: 22.5, badge: 'hot', color1: '#6B0000', color2: '#A00000',
+                image: 'https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=800&q=80',
+                specs: { engine: '3.9L V8 Twin-Turbo', power: '720 HP', torque: '770 Nm', speed: '0-100: 2.85s', fuel: '14.9 L/100km', seats: '2 chỗ' },
+                desc: 'Ferrari 488 Pista Spider – đỉnh cao dòng V8 mid-engine của Ferrari. Pista (tiếng Ý nghĩa là "đường đua") được phát triển trực tiếp từ xe đua GT. Với 720 mã lực và công nghệ Side Slip Control 6.1, mỗi cú tăng tốc là một cảm xúc thuần khiết không thể quên.'
+            },
+            {
+                id: 11, brand: 'Lamborghini', name: 'Huracán EVO Spyder', type: 'Siêu xe', year: 2023, fuel: 'Xăng', seats: 2, trans: 'DCT',
+                price: 24.8, badge: 'new', color1: '#4A3300', color2: '#8A6000',
+                image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80',
+                specs: { engine: '5.2L V10 N/A', power: '630 HP', torque: '600 Nm', speed: '0-100: 3.1s', fuel: '13.7 L/100km', seats: '2 chỗ' },
+                desc: 'Lamborghini Huracán EVO Spyder – nghệ thuật tốc độ của người Ý. Động cơ V10 tự nhiên hút khí gầm rú không lọc, 0-100km/h chỉ 3.1 giây. Hệ thống LDVI AI kiểm soát động lực học toàn diện, cảm giác lái như phi thuyền trên đường nhựa.'
+            },
+            {
+                id: 12, brand: 'Lamborghini', name: 'Urus S Performante', type: 'SUV', year: 2024, fuel: 'Xăng', seats: 5, trans: 'Tự động',
+                price: 18.9, badge: 'hot', color1: '#1A1500', color2: '#352B00',
+                image: 'https://images.unsplash.com/photo-1689704561590-571f71f2a5f1?w=800&q=80',
+                specs: { engine: '4.0L V8 Biturbo', power: '666 HP', torque: '850 Nm', speed: '0-100: 3.3s', fuel: '12.5 L/100km', seats: '5 chỗ' },
+                desc: 'Lamborghini Urus Performante – siêu SUV mạnh mẽ nhất hành tinh. Kế thừa DNA từ Huracán và Aventador, Urus Performante đặt lại định nghĩa về SUV cao cấp với công suất 666 HP, lốp Pirelli P Zero Corsa chuyên biệt và tùy chỉnh không giới hạn tại Ad Personam.'
+            },
+            {
+                id: 13, brand: 'McLaren', name: '720S Spider', type: 'Siêu xe', year: 2022, fuel: 'Xăng', seats: 2, trans: 'DCT',
+                price: 19.5, badge: 'sale', color1: '#001A2A', color2: '#003A5A',
+                image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+                specs: { engine: '4.0L V8 Twin-Turbo', power: '720 HP', torque: '770 Nm', speed: '0-100: 2.9s', fuel: '13.2 L/100km', seats: '2 chỗ' },
+                desc: 'McLaren 720S Spider – siêu xe Anh Quốc xuất thân từ đường đua F1. Khung carbon MonoCell II siêu nhẹ, cửa dang cánh bướm độc đáo, Proactive Chassis Control II cho cảm giác cực mượt. Mui cứng thu vào chỉ 11 giây ngay ở tốc độ 50km/h.'
+            },
+            {
+                id: 14, brand: 'Rolls-Royce', name: 'Ghost Black Badge', type: 'Sedan', year: 2024, fuel: 'Xăng', seats: 4, trans: 'Tự động',
+                price: 52.0, badge: 'new', color1: '#0A0A0A', color2: '#1A1A1A',
+                image: 'https://images.unsplash.com/photo-1621516267684-5ae98cdf6e58?w=800&q=80',
+                specs: { engine: '6.75L V12 Biturbo', power: '600 HP', torque: '900 Nm', speed: '0-100: 4.5s', fuel: '14.0 L/100km', seats: '4 chỗ' },
+                desc: 'Rolls-Royce Ghost Black Badge – phiên bản tối thượng dành cho những ai yêu thích bóng đêm. Mọi chi tiết ngoại thất được mạ chrome đen sâu thẳm. Nội thất Starlight Headliner với 1.344 ngôi sao thủ công. Xe này không chỉ là phương tiện — đây là tuyên ngôn của đẳng cấp.'
+            },
+            {
+                id: 15, brand: 'Bentley', name: 'Bentayga EWB Azure', type: 'SUV', year: 2024, fuel: 'Xăng', seats: 4, trans: 'Tự động',
+                price: 38.5, badge: 'new', color1: '#002A1A', color2: '#004A30',
+                image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80',
+                specs: { engine: '4.0L V8 Twin-Turbo', power: '550 HP', torque: '770 Nm', speed: '0-100: 4.5s', fuel: '13.8 L/100km', seats: '4 chỗ' },
+                desc: 'Bentley Bentayga EWB Azure – Extended Wheelbase phiên bản hàng không hạng nhất trên bánh xe. Ghế sau massage 22 hướng, bàn làm việc tích hợp, hệ thống giải trí màn hình 12.3" riêng cho từng hành khách. Nội thất hoàn toàn thủ công tại xưởng Crewe, Anh Quốc.'
+            },
+            {
+                id: 16, brand: 'Bentley', name: 'Flying Spur Mulliner', type: 'Sedan', year: 2023, fuel: 'Xăng', seats: 5, trans: 'Tự động',
+                price: 31.2, badge: '', color1: '#1A1000', color2: '#352000',
+                image: 'https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=800&q=80',
+                specs: { engine: '6.0L W12 TSI', power: '635 HP', torque: '900 Nm', speed: '0-100: 3.7s', fuel: '16.0 L/100km', seats: '5 chỗ' },
+                desc: 'Bentley Flying Spur Mulliner – sedan grand tourer đỉnh cao nhất của Bentley. Phiên bản Mulliner có thêm lưới kim cương thêu tay trên ghế da, ốp gỗ quý cưa lát ngang hiếm gặp, và rượu mini bar ẩn sau ghế lái. Hoàn hảo cho những hành trình xuyên lục địa.'
+            },
+            {
+                id: 17, brand: 'Maserati', name: 'GranTurismo Folgore', type: 'Coupe', year: 2024, fuel: 'Điện', seats: 4, trans: 'Tự động',
+                price: 15.8, badge: 'new', color1: '#00001A', color2: '#000035',
+                image: 'https://images.unsplash.com/photo-1617654112368-307921291f42?w=800&q=80',
+                specs: { engine: 'Tri-Motor Electric', power: '760 HP', torque: '1350 Nm', speed: '0-100: 2.7s', fuel: '21 kWh/100km', seats: '4 chỗ' },
+                desc: 'Maserati GranTurismo Folgore – siêu coupe điện Italia đầu tiên. Folgore (tiếng Ý: "Sét đánh") tăng tốc 0-100 chỉ 2.7 giây nhờ 3 motor điện tổng 760HP. Thiết kế Trident huyền thoại kết hợp tương lai điện khí hóa — vẻ đẹp của mâu thuẫn hoàn hảo.'
+            },
+            {
+                id: 18, brand: 'Aston Martin', name: 'DB12 Volante', type: 'Thể thao', year: 2024, fuel: 'Xăng', seats: 4, trans: 'Tự động',
+                price: 21.3, badge: 'new', color1: '#001A2A', color2: '#003050',
+                image: 'https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&q=80',
+                specs: { engine: '4.0L V8 Twin-Turbo', power: '680 HP', torque: '800 Nm', speed: '0-100: 3.5s', fuel: '12.8 L/100km', seats: '2+2 chỗ' },
+                desc: 'Aston Martin DB12 Volante – "thế giới\'s first super tourer" theo chính Aston Martin. DB12 chứng minh Grand Tourer không nhất thiết phải chọn giữa sang trọng và tốc độ. Mui vải thu trong 14 giây, nội thất Sport Plus Luxury với Alcantara và da bê chất lượng nhất.'
+            },
+            {
+                id: 19, brand: 'Mercedes-Benz', name: 'S 580 Maybach', type: 'Sedan', year: 2024, fuel: 'Xăng', seats: 4, trans: 'Tự động',
+                price: 12.8, badge: 'hot', color1: '#0A0A1A', color2: '#1A1A30',
+                image: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&q=80',
+                specs: { engine: '4.0L V8 Biturbo', power: '503 HP', torque: '700 Nm', speed: '0-100: 4.5s', fuel: '12.4 L/100km', seats: '4 chỗ' },
+                desc: 'Mercedes-Maybach S 580 – biểu tượng của luxury sedan Đức tối thượng. Ghế sau Executive Seat reclining 43.5°, massager 10 vùng, hệ thống âm thanh Burmester 4D Surround 1750W. Vách ngăn điện tử và rèm cửa tự động cho sự riêng tư hoàn toàn khi di chuyển.'
+            },
+            {
+                id: 20, brand: 'BMW', name: 'X7 M60i xDrive', type: 'SUV', year: 2024, fuel: 'Xăng', seats: 7, trans: 'Tự động',
+                price: 5.9, badge: '', color1: '#0A1520', color2: '#1A2840',
+                image: 'https://images.unsplash.com/photo-1678762996500-cbbfc08413de?w=800&q=80',
+                specs: { engine: '4.4L V8 Biturbo', power: '530 HP', torque: '750 Nm', speed: '0-100: 4.7s', fuel: '12.8 L/100km', seats: '7 chỗ' },
+                desc: 'BMW X7 M60i – flagship SUV 7 chỗ mạnh nhất của BMW. Curved Display 12.3" kép, massage ghế với heating/cooling, panorama Sky Lounge LED với 15.000 điểm sáng. Hệ thống Integral Active Steering cho khả năng xử lý chuẩn sport car dù kích thước khổng lồ.'
+            },
+            {
+                id: 21, brand: 'Porsche', name: 'Cayenne Turbo GT', type: 'SUV', year: 2023, fuel: 'Xăng', seats: 5, trans: 'PDK',
+                price: 11.5, badge: 'hot', color1: '#2A0A0A', color2: '#4A1A1A',
+                image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=800&q=80',
+                specs: { engine: '4.0L V8 Twin-Turbo', power: '640 HP', torque: '850 Nm', speed: '0-100: 3.3s', fuel: '12.7 L/100km', seats: '5 chỗ' },
+                desc: 'Porsche Cayenne Turbo GT – SUV nhanh nhất từng được Porsche chế tạo. Lập kỷ lục Nürburgring cho SUV với thời gian 7 phút 38.9 giây. Hệ thống Porsche Active Suspension Management PASM Sport, bánh mâm 22" carbon ceramic. Đây là SUV dành cho những người thật sự lái xe.'
+            },
+            {
+                id: 22, brand: 'Tesla', name: 'Model X Plaid', type: 'SUV', year: 2024, fuel: 'Điện', seats: 7, trans: 'Tự động',
+                price: 4.8, badge: 'new', color1: '#1A0A0A', color2: '#300F0F',
+                image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800&q=80',
+                specs: { engine: 'Tri-Motor AWD', power: '1020 HP', torque: '1420 Nm', speed: '0-100: 2.6s', fuel: '20 kWh/100km', seats: '7 chỗ' },
+                desc: 'Tesla Model X Plaid – SUV điện nhanh nhất thế giới với 1.020 HP và cánh cửa Falcon Wing biểu tượng. Phạm vi 547 km, màn hình 17" xoay ngang, vô lăng Yoke và cập nhật OTA miễn phí suốt đời. 0-100km/h chỉ 2.6 giây — nhanh hơn hầu hết siêu xe.'
+            },
+            {
+                id: 23, brand: 'Ferrari', name: 'Roma Spider', type: 'Coupe', year: 2024, fuel: 'Xăng', seats: 2, trans: 'DCT',
+                price: 26.5, badge: 'new', color1: '#4A0A00', color2: '#7A1500',
+                image: 'https://images.unsplash.com/photo-1632245889029-e406faaa34cd?w=800&q=80',
+                specs: { engine: '3.9L V8 Twin-Turbo', power: '620 HP', torque: '760 Nm', speed: '0-100: 3.4s', fuel: '11.5 L/100km', seats: '2 chỗ' },
+                desc: 'Ferrari Roma Spider – vẻ đẹp của La Dolce Vita tái sinh trong thế kỷ 21. Roma Spider kết hợp đường nét coupe thanh lịch với mui vải thu vào đỉnh cao. Nội thất thiết kế "dual cockpit" đặc trưng Ferrari, bảng điều khiển đối xứng tuyệt đối. Nghệ thuật di chuyển.'
+            },
+            {
+                id: 24, brand: 'Bugatti', name: 'Chiron Super Sport', type: 'Siêu xe', year: 2022, fuel: 'Xăng', seats: 2, trans: 'DCT',
+                price: 95.0, badge: 'hot', color1: '#00001A', color2: '#000033',
+                image: 'https://images.unsplash.com/photo-1621135804608-7d05b2e5f6a9?w=800&q=80',
+                specs: { engine: '8.0L W16 Quad-Turbo', power: '1600 HP', torque: '1600 Nm', speed: '0-100: 2.3s', fuel: '35 L/100km', seats: '2 chỗ' },
+                desc: 'Bugatti Chiron Super Sport – cỗ máy siêu tốc đỉnh cao nhất của nhân loại. Động cơ W16 16 xi-lanh, 4 turbo, 1600 mã lực. Vận tốc tối đa 440 km/h. Mỗi chiếc Chiron mất 6 tháng thủ công hoàn toàn để lắp ráp. Hơn 200 lớp sơn. Chỉ 500 chiếc được sản xuất trên toàn cầu.'
+            },
         ];
 
         let compareList = [];
@@ -2467,25 +2854,35 @@
         function applyFilters() {
             let list = CARS.filter(c => {
                 const brand = document.getElementById('f-brand').value;
+                const typeSelect = document.getElementById('f-type').value;
                 const year = document.getElementById('f-year').value;
                 const fuel = document.getElementById('f-fuel').value;
                 const maxP = parseFloat(document.getElementById('f-price').value);
                 const seats = document.getElementById('f-seats').value;
                 const trans = document.getElementById('f-trans').value;
                 if (brand && c.brand !== brand) return false;
+                if (typeSelect && c.type !== typeSelect) return false;
                 if (year && c.year !== parseInt(year)) return false;
                 if (fuel && c.fuel !== fuel) return false;
                 if (c.price > maxP) return false;
                 if (seats && c.seats !== parseInt(seats)) return false;
                 if (trans && c.trans !== trans) return false;
-                if (activeFilter !== 'all' && c.type !== activeFilter && c.fuel !== activeFilter) return false;
+                // Tab filter: Điện and Hybrid match fuel, others match type
+                if (activeFilter !== 'all') {
+                    if (activeFilter === 'Điện' || activeFilter === 'Hybrid') {
+                        if (c.fuel !== activeFilter) return false;
+                    } else {
+                        if (c.type !== activeFilter) return false;
+                    }
+                }
                 return true;
             });
             renderCars(list);
         }
 
         function updatePrice(v) {
-            document.getElementById('price-label').textContent = parseFloat(v).toFixed(1) + ' tỷ';
+            const val = parseFloat(v);
+            document.getElementById('price-label').textContent = val >= 100 ? '100+ tỷ' : val.toFixed(0) + ' tỷ';
         }
 
         // Filter tabs
@@ -2549,12 +2946,20 @@
 
         function getCurrent() {
             return CARS.filter(c => {
-                if (activeFilter !== 'all' && c.type !== activeFilter && c.fuel !== activeFilter) return false;
+                if (activeFilter !== 'all') {
+                    if (activeFilter === 'Điện' || activeFilter === 'Hybrid') {
+                        if (c.fuel !== activeFilter) return false;
+                    } else {
+                        if (c.type !== activeFilter) return false;
+                    }
+                }
                 const brand = document.getElementById('f-brand').value;
+                const typeSelect = document.getElementById('f-type').value;
                 const year = document.getElementById('f-year').value;
                 const fuel = document.getElementById('f-fuel').value;
                 const maxP = parseFloat(document.getElementById('f-price').value);
                 if (brand && c.brand !== brand) return false;
+                if (typeSelect && c.type !== typeSelect) return false;
                 if (year && c.year !== parseInt(year)) return false;
                 if (fuel && c.fuel !== fuel) return false;
                 if (c.price > maxP) return false;
@@ -2583,23 +2988,78 @@
             if (compareList.length < 2) { showToast('⚠️ Chọn ít nhất 2 xe để so sánh!'); return; }
             const cars = compareList.map(id => CARS.find(c => c.id === id));
             const rows = [
-                ['Thương Hiệu', 'brand'], ['Loại Xe', 'type'], ['Năm', 'year'], ['Nhiên Liệu', 'fuel'],
-                ['Chỗ Ngồi', 'seats'], ['Hộp Số', 'trans'], ['Giá (tỷ VNĐ)', 'price']
+                ['Thương Hiệu', 'brand', null],
+                ['Loại Xe', 'type', null],
+                ['Năm', 'year', null],
+                ['Nhiên Liệu', 'fuel', null],
+                ['Chỗ Ngồi', 'seats', 'max'],
+                ['Hộp Số', 'trans', null],
+                ['Giá (tỷ VNĐ)', 'price', 'min'],
             ];
-            const thead = `<tr><th>Tiêu Chí</th>${cars.map(c => `<th style="color:var(--gold)">${c.name}</th>`).join('')}</tr>`;
-            const tbody = rows.map(([label, key]) => {
+            const thead = `<tr><th>Tiêu Chí</th>${cars.map(c => `<th style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:16px">${c.name}</th>`).join('')}</tr>`;
+
+            // Specs rows
+            const specKeys = [
+                ['engine', '⚙️ Động Cơ'],
+                ['power', '💪 Công Suất'],
+                ['torque', '🔩 Mô-men Xoắn'],
+                ['speed', '🏎 Tăng Tốc 0-100'],
+                ['fuel', '⛽ Tiêu Hao'],
+            ];
+
+            const mainRows = rows.map(([label, key, winType]) => {
                 const vals = cars.map(c => c[key]);
                 let best = null;
-                if (key === 'price') best = Math.min(...vals.map(Number));
-                if (key === 'seats') best = Math.max(...vals.map(Number));
+                if (winType === 'min') best = Math.min(...vals.map(Number));
+                if (winType === 'max') best = Math.max(...vals.map(Number));
                 const cells = cars.map(c => {
                     const v = c[key];
-                    const isW = (key === 'price' && Number(v) === best) || (key === 'seats' && Number(v) === best);
-                    return `<td class="${isW ? 'cmp-winner' : ''}">${key === 'price' ? Number(v).toFixed(1) + ' tỷ' : v}</td>`;
+                    const isW = (winType === 'min' && Number(v) === best) || (winType === 'max' && Number(v) === best);
+                    const display = key === 'price' ? Number(v).toFixed(1) + ' tỷ' : v;
+                    return `<td class="${isW ? 'cmp-winner' : ''}">${display}${isW ? ' ✓' : ''}</td>`;
                 }).join('');
                 return `<tr><td>${label}</td>${cells}</tr>`;
             }).join('');
-            document.getElementById('cmp-content').innerHTML = `<div style="overflow-x:auto"><table class="cmp-table"><thead>${thead}</thead><tbody>${tbody}</tbody></table></div>`;
+
+            const specRows = specKeys.map(([sKey, sLabel]) => {
+                const cells = cars.map(c => `<td>${c.specs[sKey] || '—'}</td>`).join('');
+                return `<tr><td>${sLabel}</td>${cells}</tr>`;
+            }).join('');
+
+            const verdict = (() => {
+                const cheapest = cars.reduce((a, b) => a.price < b.price ? a : b);
+                const fastest = cars.reduce((a, b) => {
+                    const getS = c => parseFloat((c.specs.speed || '99').replace(/[^0-9.]/g, ''));
+                    return getS(a) < getS(b) ? a : b;
+                });
+                const powerful = cars.reduce((a, b) => {
+                    const getP = c => parseInt((c.specs.power || '0').replace(/[^0-9]/g, ''));
+                    return getP(a) > getP(b) ? a : b;
+                });
+                return `<div style="padding:16px;background:var(--bg3);border-radius:10px;margin-top:16px;border:1px solid var(--border)">
+                    <div style="font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px">🏆 Nhận Xét Nhanh</div>
+                    <div style="font-size:13px;color:var(--t2);line-height:1.8">
+                      💰 <strong style="color:var(--gold)">${cheapest.name}</strong> — Giá tốt nhất (${cheapest.price.toFixed(1)} tỷ)<br>
+                      ⚡ <strong style="color:var(--gold)">${fastest.name}</strong> — Tăng tốc nhanh nhất (${fastest.specs.speed})<br>
+                      💪 <strong style="color:var(--gold)">${powerful.name}</strong> — Công suất mạnh nhất (${powerful.specs.power})
+                    </div>
+                  </div>`;
+            })();
+
+            document.getElementById('cmp-content').innerHTML = `
+                <div style="overflow-x:auto">
+                    <table class="cmp-table">
+                        <thead>${thead}</thead>
+                        <tbody>
+                            <tr><td colspan="${cars.length + 1}" style="padding:8px 16px;font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:0.1em;background:rgba(201,168,76,0.05)">Thông Tin Cơ Bản</td></tr>
+                            ${mainRows}
+                            <tr><td colspan="${cars.length + 1}" style="padding:8px 16px;font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:0.1em;background:rgba(201,168,76,0.05)">Thông Số Kỹ Thuật</td></tr>
+                            ${specRows}
+                        </tbody>
+                    </table>
+                </div>
+                ${verdict}
+            `;
             document.getElementById('cmp-overlay').classList.add('open');
         }
 
@@ -2709,25 +3169,6 @@
             document.getElementById('gallery-overlay').classList.remove('open');
         }
 
-        // ─── LIVE CHAT ───
-        function openLiveChat() {
-            document.getElementById('chat-panel').style.display = 'flex';
-            document.getElementById('chat-input').focus();
-            showToast('💬 Chat Support Online!', 'chat-toast');
-        }
-
-        function closeLiveChat() {
-            document.getElementById('chat-panel').style.display = 'none';
-        }
-
-        function sendChat() {
-            const input = document.getElementById('chat-input');
-            const msg = input.value.trim();
-            if (!msg) return;
-            showToast('✓ Tin nhắn đã gửi! AutoLux sẽ trả lời trong giây lát.', 'chat-toast');
-            input.value = '';
-        }
-
         // Add gallery button to modal
         const origOpenModal = openModal;
         openModal = function (id) {
@@ -2747,6 +3188,143 @@
         window.addEventListener('scroll', () => {
             document.getElementById('back-top').classList.toggle('show', window.scrollY > 400);
         });
+
+        // ─── INLINE COMPARE SECTION ───
+        function populateCmpSelectors() {
+            const sorted = [...CARS].sort((a, b) => a.name.localeCompare(b.name));
+            [0, 1, 2].forEach(i => {
+                const sel = document.getElementById(`cmp-sel-${i}`);
+                const baseOpt = i === 2 ? '<option value="">-- Không chọn --</option>' : '<option value="">-- Chọn xe --</option>';
+                sel.innerHTML = baseOpt + sorted.map(c =>
+                    `<option value="${c.id}">${c.brand} ${c.name} — ${c.price.toFixed(1)} tỷ</option>`
+                ).join('');
+            });
+        }
+
+        function updateInlineCompare() {
+            const ids = [0, 1, 2].map(i => parseInt(document.getElementById(`cmp-sel-${i}`).value) || null);
+            const cars = ids.map(id => id ? CARS.find(c => c.id === id) : null);
+
+            // Update previews
+            [0, 1, 2].forEach(i => {
+                const el = document.getElementById(`cmp-preview-${i}`);
+                const c = cars[i];
+                if (c) {
+                    el.innerHTML = `<div class="cmp-preview-card">
+                        <img src="${c.image}" class="cmp-preview-thumb" onerror="this.style.display='none'">
+                        <div>
+                            <div class="cmp-preview-name">${c.brand} ${c.name}</div>
+                            <div class="cmp-preview-price">${c.price.toFixed(1)} tỷ VNĐ · ${c.specs.power}</div>
+                        </div>
+                    </div>`;
+                } else {
+                    el.innerHTML = '';
+                }
+            });
+
+            const activeCars = cars.filter(Boolean);
+            const result = document.getElementById('inline-cmp-result');
+            const empty = document.getElementById('inline-cmp-empty');
+
+            if (activeCars.length < 2) {
+                result.style.display = 'none';
+                empty.style.display = 'block';
+                return;
+            }
+
+            result.style.display = 'block';
+            empty.style.display = 'none';
+
+            const cols = activeCars.length + 1; // label + cars
+            const gridCols = `180px repeat(${activeCars.length}, 1fr)`;
+
+            // Helper: extract number from string
+            const num = s => parseFloat((s || '0').toString().replace(/[^0-9.]/g, '')) || 0;
+
+            // Metrics for visual bars
+            const metrics = [
+                { key: 'price', label: '💰 Giá', unit: 'tỷ', win: 'min', vals: activeCars.map(c => c.price) },
+                { key: 'power', label: '💪 Công Suất', unit: 'HP', win: 'max', vals: activeCars.map(c => num(c.specs.power)) },
+                { key: 'torque', label: '🔩 Mô-men Xoắn', unit: 'Nm', win: 'max', vals: activeCars.map(c => num(c.specs.torque)) },
+                { key: 'accel', label: '⚡ Tăng Tốc 0-100', unit: 's', win: 'min', vals: activeCars.map(c => num(c.specs.speed)) },
+                { key: 'consume', label: '⛽ Tiêu Hao', unit: '', win: 'min', vals: activeCars.map(c => num(c.specs.fuel)) },
+            ];
+
+            const infoRows = [
+                { label: '🏷 Thương Hiệu', vals: activeCars.map(c => c.brand) },
+                { label: '📦 Loại Xe', vals: activeCars.map(c => c.type) },
+                { label: '📅 Năm SX', vals: activeCars.map(c => c.year) },
+                { label: '⛽ Nhiên Liệu', vals: activeCars.map(c => c.fuel) },
+                { label: '👥 Số Chỗ', vals: activeCars.map(c => c.seats + ' chỗ') },
+                { label: '⚙️ Hộp Số', vals: activeCars.map(c => c.trans) },
+                { label: '🔧 Động Cơ', vals: activeCars.map(c => c.specs.engine) },
+            ];
+
+            // Build header
+            const headerCols = `<div class="icmp-car-head" style="background:var(--bg3)"><div style="font-size:11px;color:var(--t3)">Tiêu Chí</div></div>` +
+                activeCars.map(c => `<div class="icmp-car-head">
+                    <div class="icmp-car-badge-row">${c.brand}</div>
+                    <div class="icmp-car-name">${c.name}</div>
+                    <div class="icmp-car-price">${c.price.toFixed(1)} tỷ · ${c.type}</div>
+                </div>`).join('');
+
+            // Build metric rows (with bars)
+            const metricRowsHTML = metrics.map(m => {
+                const best = m.win === 'min' ? Math.min(...m.vals) : Math.max(...m.vals);
+                const worst = m.win === 'min' ? Math.max(...m.vals) : Math.min(...m.vals);
+                const maxVal = Math.max(...m.vals);
+                const cells = activeCars.map((c, i) => {
+                    const v = m.vals[i];
+                    const isWin = v === best;
+                    const isLose = m.vals.length > 1 && v === worst && best !== worst;
+                    const barPct = maxVal > 0 ? (m.win === 'min' ? (1 - (v - Math.min(...m.vals)) / (maxVal - Math.min(...m.vals) || 1)) : v / maxVal) * 100 : 50;
+                    const barClass = isWin ? 'win' : isLose ? 'lose' : '';
+                    const rawVal = m.key === 'price' ? c.price.toFixed(1) : m.key === 'accel' ? c.specs.speed : m.vals[i];
+                    return `<div class="icmp-cell ${isWin ? 'icmp-win' : isLose ? 'icmp-lose' : ''}" style="flex-direction:column;gap:4px">
+                        <span>${rawVal}${m.unit && m.key !== 'accel' ? ' ' + m.unit : ''}</span>
+                        <div class="icmp-bar-wrap"><div class="icmp-bar ${barClass}" style="width:${Math.max(barPct, 4).toFixed(0)}%"></div></div>
+                    </div>`;
+                }).join('');
+                return `<div class="icmp-row" style="grid-template-columns:${gridCols}">
+                    <div class="icmp-label">${m.label}</div>${cells}
+                </div>`;
+            }).join('');
+
+            // Build info rows
+            const infoRowsHTML = infoRows.map(r => {
+                const cells = r.vals.map(v => `<div class="icmp-cell">${v}</div>`).join('');
+                return `<div class="icmp-row" style="grid-template-columns:${gridCols}">
+                    <div class="icmp-label">${r.label}</div>${cells}
+                </div>`;
+            }).join('');
+
+            // Verdict
+            const cheapest = activeCars.reduce((a, b) => a.price < b.price ? a : b);
+            const fastest = activeCars.reduce((a, b) => num(a.specs.speed) < num(b.specs.speed) ? a : b);
+            const powerful = activeCars.reduce((a, b) => num(a.specs.power) > num(b.specs.power) ? a : b);
+            const efficient = activeCars.reduce((a, b) => num(a.specs.fuel) < num(b.specs.fuel) ? a : b);
+
+            const verdictHTML = `<div class="icmp-verdict">
+                <div class="icmp-verdict-title">🏆 Nhận Xét Tổng Quan</div>
+                <div class="icmp-verdict-row">
+                    <span class="icmp-badge green">💰 Giá tốt nhất — ${cheapest.name}</span>
+                    <span class="icmp-badge gold">⚡ Tăng tốc nhanh nhất — ${fastest.name}</span>
+                    <span class="icmp-badge red">💪 Mạnh nhất — ${powerful.name}</span>
+                    <span class="icmp-badge green">🌿 Tiết kiệm nhất — ${efficient.name}</span>
+                </div>
+            </div>`;
+
+            result.innerHTML = `<div class="icmp-wrap">
+                <div class="icmp-header" style="grid-template-columns:${gridCols}">${headerCols}</div>
+                <div class="icmp-section-head">📊 Hiệu Suất — Biểu Đồ So Sánh</div>
+                ${metricRowsHTML}
+                <div class="icmp-section-head">📋 Thông Tin Chi Tiết</div>
+                ${infoRowsHTML}
+                ${verdictHTML}
+            </div>`;
+        }
+
+        populateCmpSelectors();
 
         // ─── INIT ───
         renderCars(CARS);
